@@ -1,16 +1,30 @@
 package game;
 
+import java.util.Random;
+
 public class Game {
 
   private String word;
   private Integer attempts = 10;
+  private static final String[] DICTIONARY = {
+ "MAKERS",
+ "CANDIES",
+ "DEVELOPER",
+ "LONDON"
+  };
 
   public Game(String word) {
-    this.word = word;
+    this.word = getRandomWordFromDictionary();
   }
 
   public static void main(String[] args) {
     
+  }
+
+  public String getRandomWordFromDictionary(){
+
+    return DICTIONARY[new Random().nextInt(DICTIONARY.length)];
+
   }
 
   public String getWordToGuess() {
