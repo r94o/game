@@ -3,6 +3,7 @@ package game;
 public class Game {
 
   private String word;
+  private Integer attempts = 10;
 
   public Game(String word) {
     this.word = word;
@@ -20,7 +21,11 @@ public class Game {
         hiddenWord.replace(i, i + 1, "_");
       }
     }
-
     return hiddenWord.toString();
+  }
+
+  public Integer getRemainingAttempts(){
+    return this.attempts;
+
   }
 }

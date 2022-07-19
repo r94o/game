@@ -8,4 +8,9 @@ public class GameTest {
     Game game = new Game("MAKERS");
     assertEquals(game.getWordToGuess(), "M_____");
   }
+
+  @Test public void testNumberOfAttempts() {
+    Game game = new Game("MAKERS");
+    assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
+  }
 }
