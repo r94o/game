@@ -16,7 +16,8 @@ public class Game {
     StringBuilder hiddenWord = new StringBuilder(this.word);
     
     for(int i = 0; i < hiddenWord.length(); i++) {
-      if (i != 0) {
+      Character currentLetter = this.word.charAt(i);
+      if (i != 0 && letterNotGuessed(currentLetter)) {
         hiddenWord.replace(i, i + 1, "_");
       }
     }
@@ -34,5 +35,10 @@ public class Game {
     }
     guessedLetters.add(letter);
     return true;
+  }
+
+  private Boolean letterNotGuessed(Character letter) {
+    return guessedLetters.indexOf(letter) == -1;
+
   }
 }
