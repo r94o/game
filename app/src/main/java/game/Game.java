@@ -1,9 +1,12 @@
 package game;
 
+import java.util.ArrayList;
+
 public class Game {
 
   private String word;
   private Integer attempts = 10;
+  private ArrayList<Character> guessedLetters = new ArrayList<Character>();
 
   public Game(WordChooser wordChooser) {
     this.word = wordChooser.getRandomWordFromDictionary();
@@ -22,5 +25,14 @@ public class Game {
 
   public Integer getRemainingAttempts() {
     return this.attempts;
+  }
+
+  public Boolean guessLetter(Character letter) {
+    if(this.word.indexOf(letter) == -1) {
+      this.attempts--;
+      return false;
+    }
+    guessedLetters.add(letter);
+    return true;
   }
 }
