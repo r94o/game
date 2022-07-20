@@ -1,16 +1,16 @@
 package game;
 
-import java.util.Random;
+import java.util.Arrays;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+
+import static org.junit.Assert.assertTrue;
+
 
 public class WordChooserTest {
-    @Test public void testRandomWord(){
-        Random mockedRandom = mock(Random.class);
-        when(mockedRandom.nextInt()).thenReturn(0);
-        WordChooser wordChooser = new WordChooser(mockedRandom);
-        assertEquals(String.valueOf("MAKERS"), wordChooser.getRandomWordFromDictionary());
+    @Test public void testRandomWord() {
+        WordChooser wordChooser = new WordChooser();
+        String[] MOCK_DICT = {"MAKERS", "CANDIES", "DEVELOPER", "LONDON"};
+        assertTrue(Arrays.asList(MOCK_DICT).contains(wordChooser.getRandomWordFromDictionary()));
     }
 }
